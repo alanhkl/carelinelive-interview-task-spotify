@@ -1,0 +1,11 @@
+<form class="trackSearch-form">
+  <mat-form-field class="trackSearch-full-width" appearance="fill">
+    <mat-label>Search playlist</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option" (onSelectionChange)="onSelectPlaylist(option)">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

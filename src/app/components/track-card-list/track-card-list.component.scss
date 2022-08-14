@@ -1,0 +1,20 @@
+ .playlist-col-content {
+     overflow-x: hidden;
+     overflow-y: auto;
+     flex: 1;
+
+     max-height: 100%;
+     padding: 23px 8px 8px 23px;
+
+     counter-reset: track;
+ }
+
+ .playlist-tracks {
+     overflow-y: auto;
+
+     max-height: 100%;
+
+     >app-track-card {
+         margin-bottom: 1.7rem;
+     }
+ }

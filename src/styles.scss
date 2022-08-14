@@ -1,15 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #000;
+    color: #777;
 }
 
 
 * {
     box-sizing: border-box;
+}
+
+ngx-charts-linear-gauge {
+    text {
+        fill: #777;
+    }
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #fff;
 }

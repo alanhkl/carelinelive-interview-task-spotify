@@ -1,0 +1,6 @@
+export enum MODE {
+    FASTEST = "FASTEST",
+    SLOWEST = "SLOWEST",
+    POPULAR = "POPULAR",
+    DANCEABILITY = "DANCEABILITY", 
+}

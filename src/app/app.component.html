@@ -7,25 +7,21 @@
             <p>{{ playlist.description }}</p>
             <p>{{ playlist.owner.name }}</p>
         </div>
+
+        <div>
+            <search-bar [token$]="token$" (selectPlaylist)="onSelectPlaylist($event)"> </search-bar>
+        </div>
     </header>
 
     <aside class="playlist-col">
         <h2>Tracks</h2>
         <p>{{ playlist.tracks.total }} tracks</p>
-
-        <div class="playlist-col-content playlist-tracks">
-            <app-track-card *ngFor="let track of playlist.tracks.items"
-                            [track]="track">
-            </app-track-card>
-        </div>
+        <track-card-list [playlist]="playlist" (selectTrack)="onSelectTrack($event)"></track-card-list>
     </aside>
 
     <article class="playlist-col">
-        <h2>Some us some cool stuff!</h2>
-
         <div class="playlist-col-content playlist-analysis">
-            <app-playlist-analysis [playlist]="playlist">
-
+            <app-playlist-analysis [playlist]="playlist" [selectedTrackId]="selectedMusicId">
             </app-playlist-analysis>
         </div>
     </article>

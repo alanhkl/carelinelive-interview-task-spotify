@@ -1,4 +1,6 @@
 <mat-card>
+    <div class="order" [ngClass]="{isFirst:index===0}" [ngStyle]="{'background-color':(color||'#333')}">{{orderNum}}
+    </div>
     <mat-card-header>
         <img matCardAvatar [src]="track.album.image?.url" [alt]="track.album.name">
         <mat-card-title>{{ track.name }}</mat-card-title>
@@ -6,4 +8,5 @@
             {{ track.artists[0] }}
         </mat-card-subtitle>
     </mat-card-header>
+    <mat-card-content>{{pRate}}</mat-card-content>
 </mat-card>

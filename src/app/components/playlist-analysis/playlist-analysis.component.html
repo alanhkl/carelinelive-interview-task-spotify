@@ -1,15 +1,56 @@
-<p>Ideas:</p>
+<div class="page">
+    <ng-container *ngIf="!!selectedTrackId;else noneSelected">
+        <div class="row row1">
+            <div>
+                <h2 class="trackName">{{ trackName }}</h2>
+            </div>
+            <div class="loudness"
+                [ngClass]="{loud:loudnessGrade===1,soLoud:loudnessGrade===2,veryLoud:loudnessGrade===3}">
 
-<ul>
-    <li>What's the most popular track?</li>
-    <li>What's the fastest/slowest?</li>
-    <li>Distribution of BPM</li>
-    <li>What is the danceability of the current playlist?</li>
-    <li>Is this track loud or quiet?</li>
-    <li>
-        Use a charting library (such as <a href="https://github.com/swimlane/ngx-charts">ngx-charts</a>) to visualise
-        distribution of different audio features.
-    </li>
-    <li>Search for a playlist, or pick from a selection</li>
-    <li>Sorting the list of tracks by a given attribute</li>
-</ul>
+                <div class="loudness-speaker">🔈</div>
+                <div class="loudness-v1" *ngIf="(loudnessGrade||0)>0">⚡</div>
+                <div class="loudness-v2" *ngIf="(loudnessGrade||0)>1">⚡</div>
+                <div class="loudness-v3" *ngIf="(loudnessGrade||0)>2">⚡</div>
+
+                <ng-container *ngIf="!!selectedTrackId;else noneSelected"></ng-container>
+            </div>
+        </div>
+
+        <div class="row row2">
+            <div class="row">
+                <div>
+                    <img class="albumImg" [src]="albumImg" [alt]="trackName">
+                </div>
+            </div>
+
+            <!-- <div>
+                <ngx-charts-linear-gauge [view]="dbChartView" [scheme]="colorScheme" [value]="loudness || 0"
+                    [previousValue]="loudnessStandard" [units]="loudnessUnit" [min]="loudnessMin" [max]="loudnessMax">
+                </ngx-charts-linear-gauge>
+            </div> -->
+        </div>
+
+        <div class="row row3">
+            <ngx-charts-number-card [view]="numberCardView" [scheme]="colorScheme" [results]="single"
+                [cardColor]="cardColor" [animations]="false">
+            </ngx-charts-number-card>
+        </div>
+    </ng-container>
+    <ng-template #noneSelected>
+        <p>Ideas:</p>
+        <ul>
+            <li>What's the most popular track?</li>
+            <li>What's the fastest/slowest?</li>
+            <li>Distribution of BPM</li>
+            <li>What is the danceability of the current playlist?</li>
+            <li>Is this track loud or quiet?</li>
+            <li>
+                Use a charting library (such as <a href="https://github.com/swimlane/ngx-charts">ngx-charts</a>) to
+                visualise
+                distribution of different audio features.
+            </li>
+            <li>Search for a playlist, or pick from a selection</li>
+            <li>Sorting the list of tracks by a given attribute</li>
+        </ul>
+    </ng-template>
+</div>

@@ -1,0 +1,9 @@
+SORT BY
+<div>
+    <button [color]="this.sorting===mode?'accent':'primary'" *ngFor="let mode of sortingModes" (click)="onSelectMode(mode)" mat-button>{{mode}}</button>
+</div>
+
+<div class="playlist-col-content playlist-tracks">
+    <app-track-card *ngFor="let track of playlist.tracks.items; let i = index" [track]="track" (click)="onClickCard(track)" [color]="colorSet[i]" [index]="i">
+    </app-track-card>
+</div>
